@@ -87,21 +87,24 @@ export default function MuscuProgram() {
 
         return (
           <div key={day}>
-            <Card className={`shadow-md rounded-none ${cardColor}`}>
-              <div
-                className="flex justify-center items-center cursor-pointer relative py-4"
-                onClick={() => toggleDay(day)}
-              >
-                <h2 className="text-xl font-bold text-center">
-                  {isRestDay && isRestActive ? 'REPOS' : day}
-                </h2>
-                {!isRestDay && (
-                  <div className="absolute right-4">
-                    {activeDay === day ? <ChevronUp /> : <ChevronDown />}
-                  </div>
-                )}
-              </div>
-            </Card>
+           <Card className={`shadow-md rounded-none ${cardColor}`}>
+  <div
+    className={`flex justify-center items-center cursor-pointer relative py-4 ${
+      ['LUNDI', 'MERCREDI', 'VENDREDI'].includes(day) ? '' : 'bg-purple-800 text-white'
+    }`}
+    onClick={() => toggleDay(day)}
+  >
+    <h2 className="text-xl font-bold text-center">
+      {isRestDay && isRestActive ? 'REPOS' : day}
+    </h2>
+    {!isRestDay && (
+      <div className="absolute right-4">
+        {activeDay === day ? <ChevronUp /> : <ChevronDown />}
+      </div>
+    )}
+  </div>
+</Card>
+
 
             {activeDay === day && trainingData[day] && (
               <motion.div
