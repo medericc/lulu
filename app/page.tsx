@@ -11,22 +11,22 @@ const purpleDaysDefault = new Set(['LUNDI', 'MERCREDI', 'VENDREDI', 'DIMANCHE'])
 
 const trainingData = {
   LUNDI: [
-    { id: 1, name: 'Bench Press', rep: '3x10', video: 'bench.mp4' },
-    { id: 2, name: 'Rowing Bucheron', rep: '3x10', video: 'rowing.mp4' },
-    { id: 3, name: 'Fentes', rep: '3x08', video: 'fente.mp4' },
-    { id: 4, name: 'Soulevé de Terre', rep: '3x10', video: 'sdt.mp4' },
+    { id: 1, name: 'Bench Press', rep: '3x10', video: 'bench.webm' },
+    { id: 2, name: 'Rowing Bucheron', rep: '3x10', video: 'rowing.webm' },
+    { id: 3, name: 'Fentes', rep: '3x08', video: 'fente.webm' },
+    { id: 4, name: 'Soulevé de Terre', rep: '3x10', video: 'sdt.webm' },
   ],
   MERCREDI: [
-    { id: 1, name: 'Bench Press', rep: '3x10', video: 'bench.mp4' },
-    { id: 2, name: 'Rowing Bucheron', rep: '3x10', video: 'rowing.mp4' },
-    { id: 3, name: 'Fentes', rep: '3x08', video: 'fente.mp4' },
-    { id: 4, name: 'Soulevé de Terre', rep: '3x10', video: 'sdt.mp4' },
+    { id: 1, name: 'Bench Press', rep: '3x10', video: 'bench.webm' },
+    { id: 2, name: 'Rowing Bucheron', rep: '3x10', video: 'rowing.webm' },
+    { id: 3, name: 'Fentes', rep: '3x08', video: 'fente.webm' },
+    { id: 4, name: 'Soulevé de Terre', rep: '3x10', video: 'sdt.webm' },
   ],
   VENDREDI: [
-    { id: 1, name: 'Bench Press', rep: '3x10', video: 'bench.mp4' },
-    { id: 2, name: 'Rowing Bucheron', rep: '3x10', video: 'rowing.mp4' },
-    { id: 3, name: 'Fentes', rep: '3x08', video: 'fente.mp4' },
-    { id: 4, name: 'Soulevé de Terre', rep: '3x10', video: 'sdt.mp4' },
+    { id: 1, name: 'Bench Press', rep: '3x10', video: 'bench.webm' },
+    { id: 2, name: 'Rowing Bucheron', rep: '3x10', video: 'rowing.webm' },
+    { id: 3, name: 'Fentes', rep: '3x08', video: 'fente.webm' },
+    { id: 4, name: 'Soulevé de Terre', rep: '3x10', video: 'sdt.webm' },
   ],
 }
 
@@ -35,6 +35,9 @@ export default function MuscuProgram() {
   const [activeVideoId, setActiveVideoId] = useState<number | null>(null)
   const [restDays, setRestDays] = useState<Set<string>>(new Set())
   const [toggledColors, setToggledColors] = useState<Set<string>>(new Set())
+const toggleVideo = (id: number) => {
+  setActiveVideoId(prevId => (prevId === id ? null : id))
+}
 
  const toggleDay = (day: string) => {
   const isRest = !trainingData[day]
