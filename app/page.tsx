@@ -88,12 +88,18 @@ export default function MuscuProgram() {
         return (
           <div key={day}>
            <Card className={`shadow-md rounded-none ${cardColor}`}>
-  <div
-    className={`flex justify-center items-center cursor-pointer relative py-4 ${
-      ['LUNDI', 'MERCREDI', 'VENDREDI'].includes(day) ? '' : 'bg-purple-800 text-white'
-    }`}
-    onClick={() => toggleDay(day)}
-  >
+<div
+  className={`flex justify-center items-center cursor-pointer relative py-4 ${
+    activeDay === day
+      ? 'bg-purple-800 text-white'
+      : ['LUNDI', 'MERCREDI', 'VENDREDI'].includes(day)
+        ? ''
+        : 'bg-[color:var(--color-custom-purple)] text-white'
+  }`}
+  onClick={() => toggleDay(day)}
+>
+
+
     <h2 className="text-xl font-bold text-center">
       {isRestDay && isRestActive ? 'REPOS' : day}
     </h2>
