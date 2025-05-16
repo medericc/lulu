@@ -8,8 +8,17 @@ import { motion } from 'framer-motion'
 const days = ['LUNDI', 'MARDI', 'MERCREDI', 'JEUDI', 'VENDREDI', 'SAMEDI', 'DIMANCHE']
 
 const purpleDaysDefault = new Set(['LUNDI', 'MERCREDI', 'VENDREDI', 'DIMANCHE'])
+type TrainingDay = {
+  id: number
+  name: string
+  rep: string
+  video: string
+}
 
-const trainingData = {
+type TrainingData = {
+  [key in 'LUNDI' | 'MERCREDI' | 'VENDREDI']?: TrainingDay[]
+}
+const trainingData : TrainingData  = {
   LUNDI: [
     { id: 1, name: 'Bench Press', rep: '3x10', video: 'bench.webm' },
     { id: 2, name: 'Rowing Bucheron', rep: '3x10', video: 'rowing.webm' },
@@ -40,7 +49,8 @@ const toggleVideo = (id: number) => {
 }
 
  const toggleDay = (day: string) => {
-  const isRest = !trainingData[day]
+  const isRest = !trainingData[day as keyof TrainingData]
+
 
   if (isRest) {
     setRestDays(prev => {
@@ -84,7 +94,7 @@ const toggleVideo = (id: number) => {
   return (
     <div className="grid gap-4 p-4">
       {days.map(day => {
-        const isRestDay = !trainingData[day]
+        const isRestDay = !trainingData[day as keyof TrainingData]
         const isRestActive = restDays.has(day)
         const cardColor = getCardColor(day)
 
@@ -115,7 +125,7 @@ const toggleVideo = (id: number) => {
 </Card>
 
 
-            {activeDay === day && trainingData[day] && (
+             {activeDay === day && trainingData[day as keyof TrainingData] && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: 'auto', opacity: 1 }}
@@ -123,7 +133,7 @@ const toggleVideo = (id: number) => {
                 className="overflow-hidden"
               >
                 <div className="bg-gray-100 border p-4 rounded-none">
-                  {trainingData[day].map((exo) => (
+                  {trainingData[day as keyof TrainingData]!.map(exo => (
                     <div key={exo.id} className="border-b last:border-b-0 py-2">
                       <div
                         className="cursor-pointer flex justify-between items-center font-medium text-gray-800 hover:text-black"
