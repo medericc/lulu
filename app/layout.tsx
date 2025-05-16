@@ -19,7 +19,7 @@ import './globals.css';
           url: "https://lucile-muscu.vercel.app/preview.jpg", // Mets une image propre ici !
           width: 1200,
           height: 630,
-          alt: "Site de Carla et Lucile",
+          alt: "Site Lucile Muscu",
         },
       ],
       type: "website",
