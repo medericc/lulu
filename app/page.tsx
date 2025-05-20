@@ -84,9 +84,9 @@ const toggleVideo = (id: number) => {
     const isToggled = toggledColors.has(day)
 
     // Si par défaut violet et pas inversé → violet
-    if (isDefaultPurple && !isToggled) return 'bg-[color:var(--color-custom-purple)] text-white'
+    if (isDefaultPurple && !isToggled) return 'bg-purple-800 text-white'
     // Si pas violet par défaut mais toggled → violet
-    if (!isDefaultPurple && isToggled) return 'bg-[color:var(--color-custom-purple)] text-white'
+    if (!isDefaultPurple && isToggled) return 'bg-purple-800 text-white'
     // Sinon → blanc
     return 'bg-white text-black'
   }
@@ -107,7 +107,7 @@ const toggleVideo = (id: number) => {
       ? 'bg-purple-800 text-white'
       : ['LUNDI', 'MERCREDI', 'VENDREDI'].includes(day)
         ? ''
-        : 'bg-purple-800 text-white'
+        : 'bg-[color:var(--color-custom-purple)] text-white'
   }`}
   onClick={() => toggleDay(day)}
 >
