@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
       <html lang="fr">
           <body className="min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white">
-          <header className="bg-gradient-to-r from-orange-800 to-orange-900 text-white p-8 text-4xl font-extrabold text-center shadow-md">
+          <header className="bg-gradient-to-r from-orange-700 to-orange-800 text-white p-8 text-4xl font-extrabold text-center shadow-md">
     LUCILE MUSCU
 </header>
               <main className="container mx-auto mt-4">{children}</main>
