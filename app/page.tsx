@@ -84,9 +84,9 @@ const toggleVideo = (id: number) => {
     const isToggled = toggledColors.has(day)
 
     // Si par défaut violet et pas inversé → violet
-    if (isDefaultPurple && !isToggled) return 'bg-purple-800 text-white'
+    if (isDefaultPurple && !isToggled) return 'bg-orange-800 text-white'
     // Si pas violet par défaut mais toggled → violet
-    if (!isDefaultPurple && isToggled) return 'bg-purple-800 text-white'
+    if (!isDefaultPurple && isToggled) return 'bg-orange-800 text-white'
     // Sinon → blanc
     return 'bg-white text-black'
   }
@@ -104,10 +104,10 @@ const toggleVideo = (id: number) => {
 <div
   className={`flex justify-center items-center cursor-pointer relative py-4 ${
     activeDay === day
-      ? 'bg-purple-800 text-white'
+      ? 'bg-orange-800 text-white'
       : ['LUNDI', 'MERCREDI', 'VENDREDI'].includes(day)
         ? ''
-        : 'bg-[color:var(--color-custom-purple)] text-white'
+        : 'bg-[color:var(--color-custom-orange)] text-white'
   }`}
   onClick={() => toggleDay(day)}
 >
