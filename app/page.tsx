@@ -107,7 +107,7 @@ const toggleVideo = (id: number) => {
       ? 'bg-orange-800 text-white'
       : ['LUNDI', 'MERCREDI', 'VENDREDI'].includes(day)
         ? ''
-        : 'bg-orange-800 text-white'
+        : 'bg-orange-700 text-white'
   }`}
   onClick={() => toggleDay(day)}
 >
